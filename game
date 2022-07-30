@@ -1,0 +1,74 @@
+import random
+secenek = ["taş","kağıt","makas"]
+taş = secenek[0]
+kağıt = secenek[1]
+makas = secenek[2]
+döngü = 3
+win = 0
+oyun = 0
+print("Taş,Kağıt, Makas oyununa hoş geldinizn Oyunu bitirmek için q tuşuna basın")
+while True:
+  if döngü == 0:
+    break
+  else:
+
+   try:
+    secim = input("Taş mı kağıt mı makas mı? ")
+    bil_secim = random.choice(secenek)
+
+   except:
+     print("Litfen belirtilen seçeneklerden birini seçin (taş - kağıt - makas)")
+
+   else:
+    if secim==taş:
+        if bil_secim==taş:
+            print("Bilgisayarın seçimi: Taşn Sonuç: Berabere")
+            oyun += 1
+
+        elif bil_secim==kağıt:
+            print("Bilgisayarın seçimi: Kağıt Kaybettiniz")
+            döngü -= 1
+            oyun += 1
+
+        else:
+            print("Bilgisayarın seçimi: Makas Sonuç:Kazandınız")
+            win += 1
+            döngü -= 1
+            oyun += 1
+
+    if secim==kağıt:
+        if bil_secim == taş:
+            print("Bilgisayarın seçimi: Taş Sonuç: Kazandınız")
+            döngü -= 1
+            win += 1
+            oyun += 1
+
+        elif bil_secim==kağıt:
+            print("Bilgisayarın seçimi: Kağıt Sonuç: Berabere")
+            oyun += 1
+
+        else:
+            print("Bilgisayarın seçimi: Makas Sonuç:Kaybettiniz")
+            döngü -= 1
+            oyun += 1
+
+    if secim==makas:
+        if bil_secim==taş:
+            print("Bilgisayarın seçimi: Taş Sonuç: Kaybettiniz")
+            döngü -= 1
+            oyun += 1
+
+        elif bil_secim==kağıt:
+            print("Bilgisayarın seçimi: Kağıt Sonuç: Kazandınız")
+            döngü -= 1
+            win += 1
+            oyun += 1
+        else:
+            print("Bilgisayarın seçimi: Makas Sonuç:Berabere")
+            oyun += 1
+            
+        if secim=='q':
+            print("Çıkılıyor...")
+            break
+            
+print(f"{oyun}'da {win} sayı kazandınız.")
